@@ -52,6 +52,7 @@
             </a>
         </div>
     </div>
+
     <div class="col-sm-12 p-0 mb-2 mt-5">
         <div class="container">
             <h3>MTS Ishlahul Masalik Tebluru</h3>
@@ -69,6 +70,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
         <h3 align="center">INFORMASI</h3>
         <div class="container">
@@ -107,9 +109,67 @@
             <?php   } ?>
         </div>
     </div>
+
+    <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
+        <h3 align="center">TENAGA PENDIDIK</h3>
+        <div class="container">
+            <div id="slider-tools-1"></div>
+            <div class="owl-carousel" id="tenaga-pendidik-slider">
+                <div class="custom-section-item">
+                    <h1>Test 1</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 2</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 3</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="col-sm-12" style="background:#009688;">
         <div class="container">
             <h4 align="center" class="pt-5 pb-5">PROFIL ALUMNI</h4>
+            <div id="slider-tools-2"></div>
+            <div class="owl-carousel" id="alumni-slider">
+                <div class="custom-section-item">
+                    <h1>Test 1</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 2</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 3</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
+        <h3 align="center">GALERI / DOKUMENTASI</h3>
+        <div class="container">
+            <div id="slider-tools-3"></div>
+            <div class="owl-carousel" id="galeri-slider">
+                <div class="custom-section-item">
+                    <h1>Test 1</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 2</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 3</h1>
+                </div>
+                <div class="custom-section-item">
+                    <h1>Test 4</h1>
+                </div>
+            </div>
         </div>
     </div>
 </main>

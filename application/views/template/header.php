@@ -6,6 +6,8 @@
     <link href="<?php echo base_url('assets/bootstrap/dist/css/bootstrap.min.css')?>" rel="stylesheet"/>
     <link href="<?php echo base_url('assets/css/custom.css')?>" rel="stylesheet"/>
     <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/fontawesome-free/css/all.min.css')?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <title>MTs Ishlahul Masalik</title>
     <link rel="icon" href="/assets/images/imageWeb/Logo.png" />
     <style>

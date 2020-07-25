@@ -49,6 +49,9 @@
   </div>
 </footer>
 
+<script src="<?php echo base_url('assets/bootstrap/dist/js/jquery.min.js')?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/dist/js/bootstrap.min.js')?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
     window.onscroll = function() {myFunction()};
 
@@ -70,8 +73,75 @@
           x.className = "nav-bar";
       }
     }
-</script>
 
-<script src="<?php echo base_url('assets/bootstrap/dist/js/jquery.min.js')?>"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
-<script src="<?php echo base_url('assets/bootstrap/dist/js/bootstrap.min.js')?>"></script>
+    $( document ).ready(function() {
+      $('#tenaga-pendidik-slider').owlCarousel({
+          loop:true,
+          nav:true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 3
+            }
+          },
+          dots:false,
+          margin:20,
+          navText:[
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+          ],
+          navContainer: "#slider-tools-1"
+        });
+
+        $('#alumni-slider').owlCarousel({
+            loop:true,
+            nav:true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 2
+              },
+              1000: {
+                items: 2
+              }
+            },
+            dots:false,
+            margin:20,
+            navText:[
+              '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+              '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+            ],
+            navContainer: "#slider-tools-2"
+          })
+
+          $('#galeri-slider').owlCarousel({
+            loop:true,
+            nav:true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 2
+              },
+              1000: {
+                items: 3
+              }
+            },
+            dots:false,
+            margin:20,
+            navText:[
+              '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+              '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+            ],
+            navContainer: "#slider-tools-3"
+          })
+    });
+</script>
