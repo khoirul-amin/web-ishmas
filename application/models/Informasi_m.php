@@ -27,6 +27,9 @@ class Informasi_m extends CI_Model{
     return $this->db->get('informasi')->num_rows();
   }
 
+  function get_data_limit(){
+		return  $this->db->query('SELECT * FROM informasi WHERE status="Active" LIMIT 3');
+  }
 
   function get_data(){
 		return  $this->db->query('SELECT * FROM informasi WHERE status="Active"');		

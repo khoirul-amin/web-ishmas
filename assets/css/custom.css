@@ -1,19 +1,48 @@
 body{
     background: #cccccc;
 }
-.box-right-content{
-    background: #ffffff;
-    padding : 10;
-}
 .header-box{
-    border-top: 2px solid #009688;
+    border-bottom: 3px solid rgb(205, 206, 206) ;
     text-align: left;
     font-size: 16pt;
-    background: #f7f7f7;
-    padding: 10px 0px 10px 10px;
+    padding: 10px 10px 0px 0px;
+}
+.ab{
+  padding:0px 0px 9px 0px;
+  margin: 0px 0px -3px 0px;
+  width: fit-content;
+  border-bottom: 3px solid #009688;
 }
 .cp{
     padding: 0px 0px 0px 15px;
+}
+.news-list {
+  margin-top: 10px;
+}
+.news-list .news-link{
+  text-decoration: none;
+  color: #009688;
+  font-size: 14pt;
+  font-weight: 600;
+}
+.news-list .news-date{
+  text-decoration: none;
+  color: #009688;
+  margin-top: 10px;
+  font-size: 10pt;
+  font-weight: 300;
+  border-bottom: 1px solid #dce7e6;
+}
+.news-list .fol-up{
+  color: yellow;
+  background: #009688;
+  font-size: 35pt;
+  padding:7px;
+}
+.view-content .judul-view{
+  font-size: 18pt;
+  font-weight: 700;
+  color: #009688;
 }
 
 .ul-top{
@@ -323,16 +352,233 @@ body{
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.bg-informasi{
-  background-image: url('/assets/images/imageWeb/informasi.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  transition: .1s;
-  cursor: pointer;
+
+.more-berita{
+  text-decoration: none;
+  color: yellow;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: #009688;
+  transition: background-color .3s;
 }
-.bg-informasi:hover{
-  background-size: 105% 105%;
+
+.more-berita:hover{
+  text-decoration: none;
+  background: #017a6e;
+  color: yellow;
+}
+.button-more{
+  color: #009688;
+  cursor: pointer;
+  border:2px solid #009688;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 14pt;
+  font-weight: 700;
+  transition: background-color .5s;
+}
+.button-more:hover{
+  background: #009688;
+  color: #fff;
+  box-shadow:  -1px 2px 13px 0px rgba(143,139,143,0.6);
+  text-decoration: none;
+}
+
+.custom-section-item{
+  padding:10px;
+}
+
+/* owl 1 */
+.custom-section-tendik{
+  box-shadow: -1px 2px 10px 0px rgba(143,139,143,0.6);
+}
+.image-card-guru{
+  height: 250px;
+  overflow: hidden;
+}
+.image-card-guru img{
+  height: 250px;
+  transition: transform .5s;
+}
+.image-card-guru:hover img{
+  cursor: pointer;
+  transform: scale(1.1); 
+}
+.description-card-guru{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.nama-guru{
+  margin-bottom: 0px;
+  font-weight: 700;
+  font-size: 14pt;
+  color: #017a6e;
+  text-transform: uppercase;
+}
+.ket-guru{
+  color: rgb(196, 196, 6);
+  text-transform: uppercase;
+}
+
+.section-body{
+  position: relative;
+}
+#slider-tools-1 .owl-next,#slider-tools-3 .owl-next{
+  position: absolute;
+  right: -40px;
+  top:50%;
+  z-index: 20;
+  content: "";
+  background: #009688;
+  border: none;
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+#slider-tools-1 .owl-prev,#slider-tools-3 .owl-prev{
+  position: absolute;
+  left: -40px;
+  z-index: 20;
+  top:50%;
+  content: "";
+  background: #009688;
+  border: none;
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+#slider-tools-1 .owl-next:hover,
+#slider-tools-1 .owl-prev:hover,#slider-tools-3 .owl-next:hover,
+#slider-tools-3 .owl-prev:hover{
+  background: rgb(209, 209, 6);
+  color: #1a5a54;
+}
+
+
+/* Alumni */
+.custom-section-alumni{
+  border: 1px solid #fff;
+  border-radius: 10px;
+  height: 270px;
+  color: #fff;
+}
+#slider-tools-2 .owl-next{
+  position: absolute;
+  right: -40px;
+  top:40%;
+  z-index: 20;
+  content: "";
+  background: rgb(209, 209, 6);
+  border: none;
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+#slider-tools-2 .owl-prev{
+  position: absolute;
+  left: -40px;
+  z-index: 20;
+  top:40%;
+  content: "";
+  background: rgb(209, 209, 6);
+  border: none;
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+#slider-tools-2 .owl-next:hover,
+#slider-tools-2 .owl-prev:hover{
+  background: rgb(255, 255, 255);
+  color: #1a5a54;
+}
+
+.description-card-alumni .name-alumni{
+  color: yellow;
+  font-size: 16pt;
+}
+.description-card-alumni .desk-alumni{
+  font-size: 12pt;
+}
+.description-card-alumni .more-alumni{
+  font-size: 12pt;
+  text-decoration: none;
+  color: yellow;
+}
+.description-card-alumni .more-alumni:hover{
+  color: #fff;
+}
+
+.image-card-alumni{
+  height: 250px;
+  overflow: hidden;
+}
+
+.image-card-alumni img{
+  height: 250px;
+  width: 100%;
+  transition: transform .5s;
+}
+.image-card-alumni:hover img{
+  cursor: pointer;
+  transform: scale(1.1); 
+}
+
+/* Informasi */
+.bg-informasi{
+  text-align: center;
+}
+.bg-informasi img{
+  height: 280px;
+  transition: transform .5s;
+}
+.bg-informasi:hover img{
+  cursor: pointer;
+  transform: scale(1.1); 
+}
+
+/* card berita */
+.description-card-berita {
+  padding-top: 10px;
+}
+.description-card-berita .judul-berita{
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 14pt;
+  color: #017a6e;
+}
+.image-card-berita{
+  text-align: center;
+  height: 210px;
+  overflow: hidden;
+}
+.image-card-berita img{
+  height: 200px;
+  transition: transform .5s;
+}
+.image-card-berita:hover img{
+  cursor: pointer;
+  transform: scale(1.1); 
+}
+.info-admin{
+  background: #017a6e;
+  font-size: 10pt;
+  padding: 5px 20px;
+  color: #fff;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) { 
@@ -376,5 +622,18 @@ body{
     }
     .center-head{
       text-align: center;
+    }
+    #slider-tools-1 .owl-next,
+    #slider-tools-2 .owl-next,
+    #slider-tools-3 .owl-next{
+      right: 0;
+    }
+    #slider-tools-1 .owl-prev,
+    #slider-tools-2 .owl-prev,
+    #slider-tools-3 .owl-prev{
+      left: 0;
+    }
+    .image-card-alumni{
+      display: none;
     }
  }

@@ -19,6 +19,11 @@ class Berita_m extends CI_Model{
         $this->db->update('berita',$data);
     }
 
+
+    function get_galeri_limit(){
+        return $this->db->query('SELECT * FROM berita WHERE status="Active" ORDER BY id DESC LIMIT 5');
+    }
+
     function get_galeri(){
         return $this->db->query('SELECT * FROM berita WHERE status="Active" ORDER BY id DESC');
     }

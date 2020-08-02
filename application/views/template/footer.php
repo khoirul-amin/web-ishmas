@@ -76,52 +76,6 @@
 
     $( document ).ready(function() {
       $('#tenaga-pendidik-slider').owlCarousel({
-          loop:true,
-          nav:true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            600: {
-              items: 2
-            },
-            1000: {
-              items: 3
-            }
-          },
-          dots:false,
-          margin:20,
-          navText:[
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-          ],
-          navContainer: "#slider-tools-1"
-        });
-
-        $('#alumni-slider').owlCarousel({
-            loop:true,
-            nav:true,
-            responsive: {
-              0: {
-                items: 1
-              },
-              600: {
-                items: 2
-              },
-              1000: {
-                items: 2
-              }
-            },
-            dots:false,
-            margin:20,
-            navText:[
-              '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-              '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-            ],
-            navContainer: "#slider-tools-2"
-          })
-
-          $('#galeri-slider').owlCarousel({
             loop:true,
             nav:true,
             responsive: {
@@ -136,12 +90,58 @@
               }
             },
             dots:false,
-            margin:20,
+            margin:00,
             navText:[
               '<i class="fa fa-angle-left" aria-hidden="true"></i>',
               '<i class="fa fa-angle-right" aria-hidden="true"></i>'
             ],
-            navContainer: "#slider-tools-3"
-          })
+            navContainer: "#slider-tools-1"
+        });
+
+        $('#alumni-slider').owlCarousel({
+              loop:true,
+              nav:true,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                600: {
+                  items: 2
+                },
+                1000: {
+                  items: 2
+                }
+              },
+              dots:false,
+              margin:20,
+              navText:[
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+              ],
+              navContainer: "#slider-tools-2"
+          });
+
+          $('#galeri-slider').owlCarousel({
+              loop:true,
+              nav:true,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                600: {
+                  items: 2
+                },
+                1000: {
+                  items: 3
+                }
+              },
+              dots:false,
+              margin:20,
+              navText:[
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+              ],
+              navContainer: "#slider-tools-3"
+          });
     });
 </script>

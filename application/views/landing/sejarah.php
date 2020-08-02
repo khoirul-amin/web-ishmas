@@ -1,9 +1,9 @@
 <?php
     $this->load->view('template/header');
 ?>
-<main role="main" class="flex-shrink-0">
+<main role="main" class="flex-shrink-0 bg-light">
     <div class="container">
-        <div class="row ml-0 mr-0 mt-2">
+        <!-- <div class="row ml-0 mr-0 mt-2">
             <div class="col-sm-12 p-0">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -12,19 +12,21 @@
                     </ol>
                 </nav>
             </div>
-        </div>
+        </div> -->
         <div class="row ml-0 mr-0">
             <div class="col-sm-8 p-0">
-                <div class="header-box">Sejarah MTs Ishlahul Masalik</div>
-                <div class="box-right-content pt-4" align="center">
+                <!-- <div class="header-box">Sejarah MTs Ishlahul Masalik</div> -->
+                <div class="view-content pt-4" align="center">
                     <img src="/assets/images/imageUpload/<?=$sejarah->image?>" width="200"/>
-                    <h3 align="center" class="mt-3 mb-3"><?=$sejarah->judul?></h3>
+                    <p class="judul-view"><?=$sejarah->judul?></p>
                     <?=$sejarah->isi?>
                 </div>
             </div>
             <div class="col-sm-4 cp">
-                <div class="header-box">Visi & Misi</div>
-                <div class="box-right-content">
+                <div class="header-box">
+                    <p class="ab">Visi & Misi</p>
+                </div>
+                <div class="news-list">
                     <?=$visimisi->isi?>
                 </div>
             </div>

@@ -19,6 +19,10 @@ class Literasi_m extends CI_Model{
         $this->db->update('literasi',$data);
     }
 
+    function get_galeri_limit(){
+        return $this->db->query('SELECT * FROM literasi WHERE status="Active" ORDER BY id DESC LIMIT 5');
+    }
+
     function get_data_active(){
         return $this->db->query('SELECT * FROM literasi WHERE status="Active" ORDER BY id DESC');
       }
