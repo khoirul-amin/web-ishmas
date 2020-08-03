@@ -124,7 +124,7 @@
                     <div class="custom-section-item">
                         <div class="custom-section-tendik">
                             <div class="image-card-guru">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSbaNyFxt-kaa4jAmqM7BTkjVirln5Djr_CTg&usqp=CAU"/>
+                                <img src="https://drive.google.com/uc?id=1o-QsWAeIjFqtd9_b9NnpdUrVbnwEpTRA"/>
                             </div>
                             <div class="description-card-guru">
                                 <p class="nama-guru">GURU 1, S.Pd.I</p>

@@ -266,8 +266,11 @@ class Home extends CI_Controller {
 
 	public function galeri(){
 		$data['literasi'] = $this->Literasi_m->get_data_active()->result(); 
-		// $data['kegiatan'] =; 
 		$data['berita'] = $this->Berita_m->get_data_active()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$this->load->view('landing/galeri', $data);
 	}
 

@@ -121,6 +121,18 @@
                   <p>Literasi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/Admin/Galerifoto" class="nav-link">
+                  <i class="fa fa-tag nav-icon"></i>
+                  <p>Galeri Foto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Admin/Galerividio" class="nav-link">
+                  <i class="fa fa-tag nav-icon"></i>
+                  <p>Galeri Vidio</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
