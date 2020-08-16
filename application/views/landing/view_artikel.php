@@ -13,12 +13,12 @@
                 </nav>
             </div>
         </div> -->
-        <div class="row ml-0 mr-0">
-            <div class="col-sm-8 p-0">
+        <div class="row ml-0 pt-2 mr-0">
+            <div class="col-sm-8 pl-0 right-row">
                 <div class="box-right-content pt-4">
                     <h3 align="center"><?=$informasi->judul?></h3>
                     <div align="center" class="mt-2 mb-2">
-                        <img src="/assets/images/imageUpload/<?=$informasi->image?>" width='400px' />
+                        <img class="img-berita" src="/assets/images/imageUpload/<?=$informasi->image?>" width='400px' />
                     </div>
                     <ul class="ul mb-3">
                         <li class="li">
@@ -35,7 +35,21 @@
                         </li>
                     </ul>
                     <div><?=$informasi->isi?></div>
+                    <!-- Sharer -->
+                    <div class="sharer">
+                        <div style="float:left;padding-top:7px">Share :</div>
+                        <a href="https://facebook.com/sharer/sharer.php?u=mtsishlahulmasalik.sch.id<?=$_SERVER['REQUEST_URI']?>" class="link-share"> <div class="icon-share"><i class="fab fa-facebook-f"></i></div> </a> 
+                        <a href="https://twitter.com/intent/tweet?url=mtsishlahulmasalik.sch.id<?=$_SERVER['REQUEST_URI']?>" class="link-share"><div class="icon-share"><i class="fab fa-twitter"></i></div></a>
+                    </div>
                 </div>
+                <!-- <amp-facebook-comments
+                    width="486"
+                    height="657"
+                    layout="responsive"
+                    data-numposts="5"
+                    data-href="http://demo.woapikstore.com/sekolah/detail-post.html"
+                    >
+                </amp-facebook-comments> -->
             </div>
             <div class="col-sm-4 cp">
                 <div class="header-box">
@@ -70,7 +84,7 @@
                         <i class="fas fa-volume-up fol-up"></i>
                     </div>
                     <div class="col-9 p-0">
-                        <a class="news-link" href="/Home/viewBerita/<?=$informasi->id?>"><?=$informasi->judul?></a>
+                        <a class="news-link" href="/Home/viewinformasi/<?=$informasi->id?>"><?=$informasi->judul?></a>
                         <p class="news-date"> 
                             <i class="fas fa-calendar mr-1"></i> <?php 
                                 $date = strtotime($informasi->created_at);

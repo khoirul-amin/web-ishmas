@@ -580,6 +580,29 @@ body{
   color: #fff;
   cursor: pointer;
 }
+.right-row{
+  border-right: 2px solid #017a6e;
+}
+.sharer{
+  border-top: 1px solid #017a6e  ;
+  padding-top: 10px;
+}
+.icon-share{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+  text-align: center;
+  margin-left: 10px;
+  background:#017a6e;
+  color: white;
+  padding-top:7px;
+}
+.icon-share:hover{
+  background: white;
+  border: 2px solid #017a6e;
+  color: #017a6e;
+}
 
 @media (max-width: 768px) { 
     .nav-home{
@@ -635,5 +658,11 @@ body{
     }
     .image-card-alumni{
       display: none;
+    }
+    .img-berita{
+      width: 300px;
+    }
+    .right-row{
+      border-right: none;
     }
  }

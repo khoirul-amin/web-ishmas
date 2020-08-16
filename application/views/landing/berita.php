@@ -16,7 +16,7 @@
             </div>
         </div> -->
         <div class="row ml-0 mr-0 pt-3 pb-3">
-            <div class="col-sm-8 p-0">
+            <div class="col-sm-8 p-0 right-row">
                 <div class="row ml-0 mr-0">
                     <?php 
                         foreach($informasi as $informasi){

@@ -52,6 +52,7 @@
 <script src="<?php echo base_url('assets/bootstrap/dist/js/jquery.min.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/dist/js/bootstrap.min.js')?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- <script async custom-element="amp-facebook-comments" src="https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js"></script> -->
 <script>
     window.onscroll = function() {myFunction()};
 

@@ -13,8 +13,8 @@
                 </nav>
             </div>
         </div> -->
-        <div class="row ml-0 mr-0">
-            <div class="col-sm-8 p-0">
+        <div class="row ml-0 mr-0 pt-2">
+            <div class="col-sm-8 pl-0 right-row">
                 <!-- <div class="header-box">Sejarah MTs Ishlahul Masalik</div> -->
                 <div class="view-content pt-4" align="center">
                     <img src="/assets/images/imageUpload/<?=$sejarah->image?>" width="200"/>

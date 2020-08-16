@@ -24,7 +24,7 @@
                     ?>
                     <div class="col-sm-6 mt-4 p-sm-3 p-0">
                         <div class="image-card-berita">
-                            <a href="/Home/viewBerita/<?=$informasi->id?>">
+                            <a href="/Home/viewliterasi/<?=$informasi->id?>">
                             <img src="/assets/images/imageUpload/<?=$informasi->image?>"/>
                             </a>
                         </div>

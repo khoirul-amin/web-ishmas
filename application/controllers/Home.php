@@ -98,34 +98,10 @@ class Home extends CI_Controller {
 	}
 
 
-	function viewInformasi($id){
-		$where = array( 'id' => $id );
-
-		$informasi = $this->Informasi_m->getByID($where)->result();
-		$where = array(
-			"id" => $informasi[0]->id_admin
-		);
-		$admin = $this->Informasi_m->get_admin($where)->result()[0];
-
-		$col = array();
-
-		$col['id'] = $informasi[0]->id;
-		$col['id_admin'] = $admin->id;
-		$col['nama_admin'] = $admin->nama;
-		$col['judul'] = $informasi[0]->judul;
-		$col['isi'] = $informasi[0]->isi;
-		$col['status'] = $informasi[0]->status;
-		$col['created_at'] = $this->generateDate($informasi[0]->created_at);
-		$col['updated_at'] = $informasi[0]->updated_at;
-
-		$data['informasi'] = json_decode(json_encode($col), FALSE);
-		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
-
-		$this->load->view('landing/view_informasi', $data);
-	}
-
 	public function sambutan(){
 		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
 
 		$this->load->view('landing/view_sambutan', $data);
 
@@ -262,6 +238,36 @@ class Home extends CI_Controller {
 		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 
 		$this->load->view('landing/view_artikel', $data);
+	}
+
+
+	function viewInformasi($id){
+		$where = array( 'id' => $id );
+
+		$informasi = $this->Informasi_m->getByID($where)->result();
+		$where = array(
+			"id" => $informasi[0]->id_admin
+		);
+		$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+		$col = array();
+
+		$col['id'] = $informasi[0]->id;
+		$col['id_admin'] = $admin->id;
+		$col['nama_admin'] = $admin->nama;
+		$col['judul'] = $informasi[0]->judul;
+		$col['isi'] = $informasi[0]->isi;
+		$col['status'] = $informasi[0]->status;
+		$col['created_at'] = $this->generateDate($informasi[0]->created_at);
+		$col['updated_at'] = $informasi[0]->updated_at;
+
+		$data['informasi'] = json_decode(json_encode($col), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+
+		$this->load->view('landing/view_informasi', $data);
 	}
 
 	public function galeri(){
