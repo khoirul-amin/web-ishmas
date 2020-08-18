@@ -6,6 +6,8 @@ class Home extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('Sambutan_m');
 		$this->load->model('Informasi_m');
+		$this->load->model('Kalender_m');
+		$this->load->model('Agenda_m');
 		$this->load->model('Berita_m');
 		$this->load->model('Banner_m');
 		$this->load->model('Literasi_m');
@@ -108,6 +110,8 @@ class Home extends CI_Controller {
 	}
 	public function profil(){
 		 
+		$data['kalender'] = $this->Kalender_m->get_data()->result();
+		$data['agenda'] = $this->Agenda_m->get_data()->result();
 		$data['tentang'] = $this->Sambutan_m->get_tentang()->result()[0];
 		$data['visimisi'] = $this->Sambutan_m->get_visi()->result()[0];
 		$this->load->view('landing/visi_misi', $data);
@@ -278,6 +282,14 @@ class Home extends CI_Controller {
 		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
 		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$this->load->view('landing/galeri', $data);
+	}
+	function agenda($id){
+		$where = array( 'id' => $id );
+		$data['agendalist'] = $this->Agenda_m->get_data()->result();
+		$data['agenda'] = $this->Agenda_m->getByID($where)->result()[0];
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$this->load->view('landing/agenda', $data);
 	}
 
 	function generateDate($data){

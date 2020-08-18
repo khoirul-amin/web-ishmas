@@ -2,17 +2,18 @@
     $this->load->view('template/header');
 ?>
 <main role="main" class="flex-shrink-0 bg-light">
+    <div class="row ml-0 mr-0 bg-secondary pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb pl-0 bg-secondary rounded-0">
+                    <li class="breadcrumb-item text-warning">Home</li>
+                    <li class="breadcrumb-item text-warning">View</li>
+                    <li class="breadcrumb-item"><?=$informasi->judul?></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="container">
-        <!-- <div class="row ml-0 mr-0 mt-2">
-            <div class="col-sm-12 p-0">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page">Home</li>
-                        <li class="breadcrumb-item active"><?=$informasi->judul?></li>
-                    </ol>
-                </nav>
-            </div>
-        </div> -->
         <div class="row ml-0 pt-2 mr-0">
             <div class="col-sm-8 pl-0 right-row">
                 <div class="box-right-content pt-4">

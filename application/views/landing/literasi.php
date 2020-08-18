@@ -4,17 +4,17 @@
 
 
 <main role="main" class="flex-shrink-0 bg-light">
+    <div class="row ml-0 mr-0 bg-secondary pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-secondary rounded-0">
+                    <li class="breadcrumb-item text-warning">Home</li>
+                    <li class="breadcrumb-item">Literasi</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="container">
-        <!-- <div class="row ml-0 mr-0 mt-2">
-            <div class="col-sm-12 p-0">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Home</li>
-                        <li class="breadcrumb-item active" aria-current="page">Literasi</li>
-                    </ol>
-                </nav>
-            </div>
-        </div> -->
         <div class="row ml-0 mr-0 pt-3">
             <div class="col-sm-8 p-0">
                 <!-- <div class="header-box">Kegiatan Literasi Siswa/Siswi MTs Ishlahul Masalik</div> -->

@@ -603,6 +603,66 @@ body{
   border: 2px solid #017a6e;
   color: #017a6e;
 }
+.breadcrumb-item::before{
+  color:#ffc107!important;
+}
+.custom-scroll{
+  height: 500px;
+  overflow: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.custom-scroll::-webkit-scrollbar{
+  width: 10px;
+}
+.custom-scroll::-webkit-scrollbar-track{
+  border-radius: 10px;
+  box-shadow:  inset 0 0 5px grey;;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #017a6e; 
+  border-radius: 10px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #035850; 
+}
+
+.kalender{
+  border-bottom: 1px dashed #017a6e;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: rgb(177, 182, 182);
+}
+.abc{
+  text-decoration: none;
+}
+.abc:hover{
+  text-decoration: none;
+}
+.kalender:hover{
+  color: #017a6e;
+  cursor: pointer;
+  transition: color .5s;
+}
+.kalender .tanggal{
+  font-size: 10pt;
+  color: black;
+}
+
+/* Agenda */
+.judul-agenda{
+  color: #017a6e;
+  border-bottom: 2px solid #f39c11;
+}
+.waktu-agenda{
+  border-bottom: 1px solid #bec4c2;
+}
+.ket-agenda{
+  height: 200px;
+}
+.ket-agenda .ket{
+  font-weight: 600;
+}
 
 @media (max-width: 768px) { 
     .nav-home{

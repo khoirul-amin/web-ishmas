@@ -283,7 +283,7 @@
             </div>
 
             <div align="center" class="mt-4 mb-4">
-                <a class="button-more" href="#" >LIHAT SEMUA BERITA</a>
+                <a class="button-more" href="/Home/berita" >LIHAT SEMUA BERITA</a>
             </div>
         </div>
     </div>
