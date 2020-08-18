@@ -6,6 +6,8 @@
     <link href="<?php echo base_url('assets/bootstrap/dist/css/bootstrap.min.css')?>" rel="stylesheet"/>
     <link href="<?php echo base_url('assets/css/custom.css')?>" rel="stylesheet"/>
     <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/fontawesome-free/css/all.min.css')?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <title>MTs Ishlahul Masalik</title>
     <link rel="icon" href="/assets/images/imageWeb/Logo.png" />
     <style>
@@ -18,6 +20,10 @@
     </style>
 </head>
 <header>
+    <?php
+        $halaman = "home";
+        $active = "active1";
+    ?>
     <div class="col-sm-12 pt-3 pb-3 bg-dark">
         <div class="container text-light"> 
             <div class="row ml-0 mr-0">
@@ -79,21 +85,32 @@
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-bar responsive" id="custom-nav">
-                    <li><a class="active1" href="/Home">Home</a></li>
                     <li>
-                        <a href="/Home/berita">Berita</a>
+                        <a class="<?php if($this->uri->segment(2) == "") echo $active; ?>" href="/Home">Home</a>
                     </li>
                     <li>
-                        <a href="/Home/profil">Tentang Kami</a>
+                        <a class="<?php if($this->uri->segment(2) == "berita") echo $active; ?>" href="/Home/berita">Berita</a>
                     </li>
                     <li>
-                        <a href="/Home/sejarah">Sejarah Sekolah</a>
+                        <a class="<?php if($this->uri->segment(2) == "literasi") echo $active; ?>" href="/Home/literasi">Literasi</a>
                     </li>
                     <li>
-                        <a href="/Home/literasi">Literasi</a>
+                        <a class="<?php if($this->uri->segment(2) == "galeri") echo $active; ?>" href="/Home/galeri">Galeri</a>
                     </li>
                     <li>
-                        <a href="/Home/galeri">Galeri</a>
+                        <a class="<?php if($this->uri->segment(2) == "pengumuman") echo $active; ?>" href="/Home/pengumuman">Pengumuman</a>
+                    </li>
+                    <li>
+                        <a class="<?php if($this->uri->segment(2) == "profil") echo $active; ?>" href="/Home/profil">Tentang Kami</a>
+                    </li>
+                    <li>
+                        <a class="<?php if($this->uri->segment(2) == "sejarah") echo $active; ?>" href="/Home/sejarah">Sejarah Sekolah</a>
+                    </li>
+                    <li>
+                        <a class="<?php if($this->uri->segment(2) == "guru") echo $active; ?>" href="/Home/guru">Guru</a>
+                    </li>
+                    <li>
+                        <!-- <a class="<?php if($this->uri->segment(2) == "alumni") echo $active; ?>" href="/Home/alumni">Alumni</a> -->
                     </li>
                 </ul>
             </div>

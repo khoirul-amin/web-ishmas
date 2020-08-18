@@ -52,6 +52,7 @@
             </a>
         </div>
     </div>
+
     <div class="col-sm-12 p-0 mb-2 mt-5">
         <div class="container">
             <h3>MTS Ishlahul Masalik Tebluru</h3>
@@ -63,12 +64,13 @@
                     <h4>Sambutan Kepala Sekolah</h4>
                     <p align="justify">
                         <?= substr($sambutan[0]->isi, 0,300) ?>....
-                        <a href="/Home/sambutan">(Baca Selengkapnya)</a>
                     </p>
+                    <a href="/Home/sambutan" class="more-berita">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Informasi -->
     <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
         <h3 align="center">INFORMASI</h3>
         <div class="container">
@@ -77,39 +79,181 @@
             ?>
             <div class="bingkai-info">
                 <div class="row m-0">
-                    <div class="col-sm-6 p-0 bg-informasi"></div>
+                    <div class="col-sm-6 pt-3 pb-0 bg-informasi">
+                        <img src="/assets/images/imageWeb/Logo.png" />
+                    </div>
                     <div class="col-sm-6 p-2 bg-light"><br/>
-                        <h5><?=$informasi->judul?></h5>
-                            <ul class="ul">
-                                <li class="li">
-                                    <i class="fas fa-user"></i>
-                                    <?=$informasi->nama_admin?>
-                                </li>
-                                <li class="li mid">
-                                    <i class="fas fa-calendar"></i>
-                                    <?=$informasi->created_at?>
-                                </li>
-                                <li class="li">
-                                    <i class="fas fa-tag"></i>
-                                    <?=$informasi->status?>
-                                </li>
-                            </ul>
-                            <hr class="my-4">
-                            <div>
-                                <?=substr($informasi->isi, 0,300)?>....
-                                <a href="Home/viewInformasi/<?=$informasi->id?>">(Baca Selengkapnya)</a>
-                                <br/><br/>
-                            </div>
+                    <h5><?=$informasi->judul?></h5>
+                        <ul class="ul">
+                            <li class="li">
+                                <i class="fas fa-user"></i>
+                                <?=$informasi->nama_admin?>
+                            </li>
+                            <li class="li mid">
+                                <i class="fas fa-calendar"></i>
+                                <?=$informasi->created_at?>
+                            </li>
+                            <li class="li">
+                                <i class="fas fa-tag"></i>
+                                <?=$informasi->status?>
+                            </li>
+                        </ul>
+                        <hr class="my-4">
+                        <div>
+                            <?=substr($informasi->isi, 0,300)?>....</br></br>
+                            <a href="Home/viewInformasi/<?=$informasi->id?>"  class="more-berita">Baca Selengkapnya</a>
+                            </br></br>
                         </div>
                     </div>
                 </div>
             </div>
             <?php   } ?>
+            <div align="center" class="mt-4 mb-4">
+                <a class="button-more" href="/Home/pengumuman" >LIHAT SEMUA INFORMASI</a>
+            </div>
         </div>
     </div>
-    <div class="col-sm-12" style="background:#009688;">
+
+    <!-- Guru -->
+    <div class="col-sm-12 pb-1 pl-0 pt-3 pr-0 mb-2 mt-5" style="background:#ffc107!important;">
+        <h3 align="center">TENAGA PENDIDIK</h3>
+        <div class="container">
+            <div class="section-body">
+                <div id="slider-tools-1"></div>
+                <div class="owl-carousel" id="tenaga-pendidik-slider">
+                    <?php foreach($guru as $guru){?>
+                    <div class="custom-section-item">
+                        <div class="custom-section-tendik">
+                            <div class="image-card-guru">
+                                <img src="/assets/images/imageUpload/<?=$guru->poto?>"/>
+                            </div>
+                            <div class="description-card-guru">
+                                <p class="nama-guru"><?=$guru->nama?></p>
+                                <p class="ket-guru">GUrU <?=$guru->mapel?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+
+            <div align="center" class="mt-4 mb-4">
+                <a class="button-more" href="/Home/guru" >LIHAT SEMUA GURU</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alumni -->
+    <!-- <div class="col-sm-12 pb-4" style="background:#009688;">
         <div class="container">
             <h4 align="center" class="pt-5 pb-5">PROFIL ALUMNI</h4>
+            <div class="section-body">
+                <div id="slider-tools-2"></div>
+                <div class="owl-carousel" id="alumni-slider">
+                    <div class="custom-section-item">
+                        <div class="custom-section-alumni">
+                            <div class="row ml-0 mr-0 p-2">
+                                <div class="col-sm-6 p-0 image-card-alumni">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRhAzUzjlh9WQnodVS8b7qtSwVh3UGn5RHYQQ&usqp=CAU"/>
+                                </div>
+                                <div class="description-card-alumni col-sm-6">
+                                    <p class="name-alumni">Khoirul Amin</p>
+                                    <p class="desk-alumni">WEB Programmer, BackEnd Developer, FrontEnd Developer, JavaScript Framework (ReactJs), PHP Framework (Laravel,Codeigniter 3).</p>
+                                    </br> <a class="more-alumni" href="#" >Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-section-item">
+                        <div class="custom-section-alumni">
+                            <div class="row ml-0 mr-0 p-2">
+                                <div class="col-sm-6 p-0 image-card-alumni">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRhAzUzjlh9WQnodVS8b7qtSwVh3UGn5RHYQQ&usqp=CAU"/>
+                                </div>
+                                <div class="description-card-alumni col-sm-6">
+                                    <p class="name-alumni">Khoirul Amin</p>
+                                    <p class="desk-alumni">WEB Programmer, BackEnd Developer, FrontEnd Developer, JavaScript Framework (ReactJs), PHP Framework (Laravel,Codeigniter 3).</p>
+                                    </br> <a class="more-alumni" href="#" >Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Galeri Kegiatan -->
+    <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
+        <h3 align="center">GALERI / DOKUMENTASI</h3>
+        <div class="container">
+            <div class="section-body">
+                <div id="slider-tools-3"></div>
+                <div class="owl-carousel" id="galeri-slider">
+                    <?php
+                        foreach($galeri as $galeri){
+                    ?>
+                    <div class="custom-section-item">
+                        <div class="custom-section-tendik">
+                            <div class="image-card-guru">
+                                <img src="/assets/images/imageUpload/<?=$galeri->image?>"/>
+                            </div>
+                            <div class="description-card-guru">
+                                <p class="nama-guru"><?=$galeri->judul?></p>
+                                <p class="ket-guru">kegiatan Literasi siswa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php
+                        foreach($galeri1 as $galeri1){
+                    ?>
+                    <div class="custom-section-item">
+                        <div class="custom-section-tendik">
+                            <div class="image-card-guru">
+                                <img src="/assets/images/imageUpload/<?=$galeri1->image?>"/>
+                            </div>
+                            <div class="description-card-guru">
+                                <p class="nama-guru"><?=$galeri1->judul?></p>
+                                <p class="ket-guru">berita seputar sekolah</p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div align="center" class="mt-4 mb-4">
+            <a class="button-more" href="/Home/galeri" >LIHAT SEMUA GALERI</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Berita -->
+    <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
+        <h3 align="center">BERITA & LITERASI</h3>
+        <div class="container">
+            <div class="row ml-0 mr-0">
+                <?php
+                    foreach($berita as $berita){
+                ?>
+                <div class="col-sm-4 mt-4">
+                    <div class="image-card-berita">
+                        <img src="/assets/images/imageUpload/<?=$berita->image?>"/>
+                    </div>
+                    <div class="description-card-berita">
+                        <h5 class="judul-berita"><?=$berita->judul?></h5>
+                        <p class="isi-berita"><?=substr($berita->isi, 0,200)?>...</p>
+                        <span class="info-admin"><i class="fa fa-user mr-2"></i> <?=$berita->nama_admin?></span>
+                        <span class="info-admin"> <?=$berita->ket?></span>
+                    </div>
+                </div>
+                <?php }  ?>
+            </div>
+
+            <div align="center" class="mt-4 mb-4">
+                <a class="button-more" href="/Home/berita" >LIHAT SEMUA BERITA</a>
+            </div>
         </div>
     </div>
 </main>

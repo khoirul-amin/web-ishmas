@@ -2,6 +2,9 @@
  
 class Informasi_m extends CI_Model{
 
+  function get_data_active(){
+    return $this->db->query('SELECT * FROM informasi WHERE status="Active" ORDER BY id DESC');
+}
 
 	function get_informasi(){
     return $this->db->get('informasi');
@@ -27,8 +30,17 @@ class Informasi_m extends CI_Model{
     return $this->db->get('informasi')->num_rows();
   }
 
+  function get_data_limit(){
+		return  $this->db->query('SELECT * FROM informasi WHERE status="Active" LIMIT 3');
+  }
 
   function get_data(){
 		return  $this->db->query('SELECT * FROM informasi WHERE status="Active"');		
 	}
+  function get_count(){
+      return $this->db->query('SELECT COUNT(id) as count_id FROM informasi');
+  }
+  function get_page($order,$limit){
+      return $this->db->query("SELECT * FROM informasi LIMIT $order,$limit");
+  }
 }

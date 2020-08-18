@@ -6,9 +6,12 @@ class Home extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('Sambutan_m');
 		$this->load->model('Informasi_m');
+		$this->load->model('Kalender_m');
+		$this->load->model('Agenda_m');
 		$this->load->model('Berita_m');
 		$this->load->model('Banner_m');
 		$this->load->model('Literasi_m');
+		$this->load->model('Guru_m');
         // $this->load->helper('url');
 	}
 
@@ -16,11 +19,14 @@ class Home extends CI_Controller {
 	public function index()
 	{
 
-		$result = $this->Informasi_m->get_data()->result();
+		$result = $this->Informasi_m->get_data_limit()->result();
+		$berita = $this->Berita_m->get_galeri_limit()->result();
+		$literasi = $this->Literasi_m->get_galeri_limit()->result();
 
 		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
 
 		$row = array();
+		$rowberita = array();
 
 		foreach($result as $informasi){
 			$where = array(
@@ -33,6 +39,7 @@ class Home extends CI_Controller {
 			$col['id'] = $informasi->id;
 			$col['id_admin'] = $admin->id;
 			$col['nama_admin'] = $admin->nama;
+			// $col['image'] = $informasi->image;
 			$col['judul'] = $informasi->judul;
 			$col['isi'] = $informasi->isi;
 			$col['status'] = $informasi->status;
@@ -41,8 +48,53 @@ class Home extends CI_Controller {
 
 			$row[] = $col;
 		};
+		foreach($berita as $berita){
+			$where = array(
+				"id" => $berita->id_admin
+			);
+			$admin = $this->Berita_m->get_admin($where)->result()[0];
+
+			$col1 = array();
+
+			$col1['id'] = $berita->id;
+			$col1['id_admin'] = $admin->id;
+			$col1['nama_admin'] = $admin->nama;
+			$col1['judul'] = $berita->judul;
+			$col1['image'] = $berita->image;
+			$col1['isi'] = $berita->isi;
+			$col1['ket'] = 'Berita';
+			$col1['status'] = $berita->status;
+			$col1['created_at'] = $this->generateDate($berita->created_at);
+			$col1['updated_at'] = $berita->updated_at;
+
+			$rowberita[] = $col1;
+		};
+		foreach($literasi as $literasi){
+			$where = array(
+				"id" => $literasi->id_admin
+			);
+			$admin = $this->Berita_m->get_admin($where)->result()[0];
+
+			$col1 = array();
+
+			$col1['id'] = $literasi->id;
+			$col1['id_admin'] = $admin->id;
+			$col1['nama_admin'] = $admin->nama;
+			$col1['judul'] = $literasi->judul;
+			$col1['image'] = $literasi->image;
+			$col1['isi'] = $literasi->isi;
+			$col1['ket'] = 'Literasi';
+			$col1['status'] = $literasi->status;
+			$col1['created_at'] = $this->generateDate($literasi->created_at);
+			$col1['updated_at'] = $literasi->updated_at;
+
+			$rowberita[] = $col1;
+		};
 		$data['informasi'] = json_decode(json_encode($row), FALSE);
-		$data['galeri'] = $this->Berita_m->get_galeri()->result();
+		$data['berita'] = json_decode(json_encode($rowberita), FALSE);
+		$data['guru'] = $this->Guru_m->get_data_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$data['banner'] = $this->Banner_m->get_banner_active()->result();
 		$data['banner1'] = $this->Banner_m->get_banner_active()->result();
 
@@ -50,40 +102,18 @@ class Home extends CI_Controller {
 	}
 
 
-	function viewInformasi($id){
-		$where = array( 'id' => $id );
-
-		$informasi = $this->Informasi_m->getByID($where)->result();
-		$where = array(
-			"id" => $informasi[0]->id_admin
-		);
-		$admin = $this->Informasi_m->get_admin($where)->result()[0];
-
-		$col = array();
-
-		$col['id'] = $informasi[0]->id;
-		$col['id_admin'] = $admin->id;
-		$col['nama_admin'] = $admin->nama;
-		$col['judul'] = $informasi[0]->judul;
-		$col['isi'] = $informasi[0]->isi;
-		$col['status'] = $informasi[0]->status;
-		$col['created_at'] = $this->generateDate($informasi[0]->created_at);
-		$col['updated_at'] = $informasi[0]->updated_at;
-
-		$data['informasi'] = json_decode(json_encode($col), FALSE);
-		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
-
-		$this->load->view('landing/view_informasi', $data);
-	}
-
 	public function sambutan(){
 		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
 
 		$this->load->view('landing/view_sambutan', $data);
 
 	}
 	public function profil(){
 		 
+		$data['kalender'] = $this->Kalender_m->get_data()->result();
+		$data['agenda'] = $this->Agenda_m->get_data()->result();
 		$data['tentang'] = $this->Sambutan_m->get_tentang()->result()[0];
 		$data['visimisi'] = $this->Sambutan_m->get_visi()->result()[0];
 		$this->load->view('landing/visi_misi', $data);
@@ -108,6 +138,7 @@ class Home extends CI_Controller {
 			$col['id'] = $informasi->id;
 			$col['id_admin'] = $admin->id;
 			$col['nama_admin'] = $admin->nama;
+			$col['image'] = $informasi->image;
 			$col['judul'] = $informasi->judul;
 			$col['isi'] = $informasi->isi;
 			$col['status'] = $informasi->status;
@@ -116,13 +147,56 @@ class Home extends CI_Controller {
 
 			$row[] = $col;
 		};
+		$page = 5;
+		$count = $this->Berita_m->get_count()->result()[0];
+		$data['total_berita'] = ceil($count->count_id/$page);
 		$data['informasi'] = json_decode(json_encode($row), FALSE);
-		$data['list_informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+		$this->load->view('landing/berita',$data);
+	}
+	function beritapage($pageurl){
+		$page = 5;
+		$count = $this->Berita_m->get_count()->result()[0];
+		$dataAwal = ($page * $pageurl) - $page;
+		$result = $this->Berita_m->get_page($dataAwal, $page)->result();
+		$row = array();
+
+		foreach($result as $informasi){
+			$where = array(
+				"id" => $informasi->id_admin
+			);
+			$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+			$col = array();
+
+			$col['id'] = $informasi->id;
+			$col['id_admin'] = $admin->id;
+			$col['nama_admin'] = $admin->nama;
+			$col['image'] = $informasi->image;
+			$col['judul'] = $informasi->judul;
+			$col['isi'] = $informasi->isi;
+			$col['status'] = $informasi->status;
+			$col['created_at'] = $this->generateDate($informasi->created_at);
+			$col['updated_at'] = $informasi->updated_at;
+
+			$row[] = $col;
+		};
+		$data['total_berita'] = ceil($count->count_id/$page);
+		$data['informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$this->load->view('landing/berita',$data);
 	}
 
 	public function literasi(){
-		$result = $this->Literasi_m->get_data_active()->result();
+		$page = 5;
+		$count = $this->Literasi_m->get_count()->result()[0];
+		$result = $this->Literasi_m->get_galeri_limit()->result();
 		$row = array();
 
 		foreach($result as $informasi){
@@ -137,6 +211,7 @@ class Home extends CI_Controller {
 			$col['id_admin'] = $admin->id;
 			$col['nama_admin'] = $admin->nama;
 			$col['judul'] = $informasi->judul;
+			$col['image'] = $informasi->image;
 			$col['isi'] = $informasi->isi;
 			$col['status'] = $informasi->status;
 			$col['created_at'] = $this->generateDate($informasi->created_at);
@@ -144,8 +219,12 @@ class Home extends CI_Controller {
 
 			$row[] = $col;
 		};
+		$data['total_berita'] = ceil($count->count_id/$page);
 		$data['informasi'] = json_decode(json_encode($row), FALSE);
-		$data['list_informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$this->load->view('landing/literasi',$data);
 	}
 
@@ -171,7 +250,10 @@ class Home extends CI_Controller {
 		$col['updated_at'] = $informasi[0]->updated_at;
 
 		$data['informasi'] = json_decode(json_encode($col), FALSE);
-		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 
 		$this->load->view('landing/view_artikel', $data);
 	}
@@ -197,22 +279,181 @@ class Home extends CI_Controller {
 		$col['updated_at'] = $informasi[0]->updated_at;
 
 		$data['informasi'] = json_decode(json_encode($col), FALSE);
-		$data['sambutan'] = $this->Sambutan_m->get_data()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 
 		$this->load->view('landing/view_artikel', $data);
 	}
 
+	public function pengumuman(){
+		$result = $this->Informasi_m->get_data_active()->result();
+		$row = array();
+
+		foreach($result as $informasi){
+			$where = array(
+				"id" => $informasi->id_admin
+			);
+			$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+			$col = array();
+
+			$col['id'] = $informasi->id;
+			$col['id_admin'] = $admin->id;
+			$col['nama_admin'] = $admin->nama;
+			// $col['image'] = $informasi->image;
+			$col['judul'] = $informasi->judul;
+			$col['isi'] = $informasi->isi;
+			$col['status'] = $informasi->status;
+			$col['created_at'] = $this->generateDate($informasi->created_at);
+			$col['updated_at'] = $informasi->updated_at;
+
+			$row[] = $col;
+		};
+		$page = 5;
+		$count = $this->Informasi_m->get_count()->result()[0];
+		$data['total_berita'] = ceil($count->count_id/$page);
+		$data['informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+		$this->load->view('landing/pengumuman',$data);
+	}
+
+	public function pengumumanpage($pageurl){
+		$page = 5;
+		$count = $this->Informasi_m->get_count()->result()[0];
+		$dataAwal = ($page * $pageurl) - $page;
+		$result = $this->Informasi_m->get_page($dataAwal, $page)->result();
+		$row = array();
+
+		foreach($result as $informasi){
+			$where = array(
+				"id" => $informasi->id_admin
+			);
+			$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+			$col = array();
+
+			$col['id'] = $informasi->id;
+			$col['id_admin'] = $admin->id;
+			$col['nama_admin'] = $admin->nama;
+			// $col['image'] = $informasi->image;
+			$col['judul'] = $informasi->judul;
+			$col['isi'] = $informasi->isi;
+			$col['status'] = $informasi->status;
+			$col['created_at'] = $this->generateDate($informasi->created_at);
+			$col['updated_at'] = $informasi->updated_at;
+
+			$row[] = $col;
+		};
+		$data['total_berita'] = ceil($count->count_id/$page);
+		$data['informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+		$this->load->view('landing/pengumuman',$data);
+	}
+	function viewInformasi($id){
+		$where = array( 'id' => $id );
+
+		$informasi = $this->Informasi_m->getByID($where)->result();
+		$where = array(
+			"id" => $informasi[0]->id_admin
+		);
+		$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+		$col = array();
+
+		$col['id'] = $informasi[0]->id;
+		$col['id_admin'] = $admin->id;
+		$col['nama_admin'] = $admin->nama;
+		$col['judul'] = $informasi[0]->judul;
+		$col['isi'] = $informasi[0]->isi;
+		$col['status'] = $informasi[0]->status;
+		$col['created_at'] = $this->generateDate($informasi[0]->created_at);
+		$col['updated_at'] = $informasi[0]->updated_at;
+
+		$data['informasi'] = json_decode(json_encode($col), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+
+		$this->load->view('landing/view_informasi', $data);
+	}
+
+	function literasipage($pageurl){
+		$page = 5;
+		$count = $this->Literasi_m->get_count()->result()[0];
+		$dataAwal = ($page * $pageurl) - $page;
+		$result = $this->Literasi_m->get_page($dataAwal, $page)->result();
+		$row = array();
+
+		foreach($result as $informasi){
+			$where = array(
+				"id" => $informasi->id_admin
+			);
+			$admin = $this->Informasi_m->get_admin($where)->result()[0];
+
+			$col = array();
+
+			$col['id'] = $informasi->id;
+			$col['id_admin'] = $admin->id;
+			$col['nama_admin'] = $admin->nama;
+			$col['image'] = $informasi->image;
+			$col['judul'] = $informasi->judul;
+			$col['isi'] = $informasi->isi;
+			$col['status'] = $informasi->status;
+			$col['created_at'] = $this->generateDate($informasi->created_at);
+			$col['updated_at'] = $informasi->updated_at;
+
+			$row[] = $col;
+		};
+		$data['total_berita'] = ceil($count->count_id/$page);
+		$data['informasi'] = json_decode(json_encode($row), FALSE);
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+		$this->load->view('landing/literasi',$data);
+	}
+
 	public function galeri(){
 		$data['literasi'] = $this->Literasi_m->get_data_active()->result(); 
-		// $data['kegiatan'] =; 
 		$data['berita'] = $this->Berita_m->get_data_active()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
 		$this->load->view('landing/galeri', $data);
+	}
+	function agenda($id){
+		$where = array( 'id' => $id );
+		$data['agendalist'] = $this->Agenda_m->get_data()->result();
+		$data['agenda'] = $this->Agenda_m->getByID($where)->result()[0];
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$this->load->view('landing/agenda', $data);
 	}
 
 	function generateDate($data){
 		$date = strtotime($data);
 		$newformat = date('d-M-Y',$date);
 		return $newformat;
+	}
+
+	function guru(){
+		$data['guru'] = $this->Guru_m->get_data()->result();
+		$data['pengumuman'] = $this->Informasi_m->get_data_limit()->result();
+		$data['list_informasi'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri'] = $this->Berita_m->get_galeri_limit()->result();
+		$data['galeri1'] = $this->Literasi_m->get_galeri_limit()->result();
+
+		$this->load->view('landing/guru', $data);
 	}
 
 }

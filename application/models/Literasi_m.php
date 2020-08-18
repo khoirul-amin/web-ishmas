@@ -19,7 +19,17 @@ class Literasi_m extends CI_Model{
         $this->db->update('literasi',$data);
     }
 
+    function get_galeri_limit(){
+        return $this->db->query('SELECT * FROM literasi WHERE status="Active" ORDER BY id DESC LIMIT 5');
+    }
+
     function get_data_active(){
         return $this->db->query('SELECT * FROM literasi WHERE status="Active" ORDER BY id DESC');
-      }
+    }
+    function get_count(){
+        return $this->db->query('SELECT COUNT(id) as count_id FROM literasi');
+    }
+    function get_page($order,$limit){
+        return $this->db->query("SELECT * FROM literasi LIMIT $order,$limit");
+    }
 }

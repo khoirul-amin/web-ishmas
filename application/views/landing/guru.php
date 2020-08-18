@@ -7,55 +7,33 @@
     <div class="row ml-0 mr-0 bg-secondary pt-3">
         <div class="container">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb pl-0 bg-secondary rounded-0">
+                <ol class="breadcrumb bg-secondary rounded-0">
                     <li class="breadcrumb-item text-warning">Home</li>
-                    <li class="breadcrumb-item">Berita</li>
+                    <li class="breadcrumb-item">Guru</li>
                 </ol>
             </nav>
         </div>
     </div>
     <div class="container">
-        <div class="row ml-0 mr-0 pt-3 pb-3">
+        <div class="row ml-0 mr-0 pt-3">
             <div class="col-sm-8 p-0 right-row">
+                <!-- <div class="header-box">Kegiatan Literasi Siswa/Siswi MTs Ishlahul Masalik</div> -->
                 <div class="row ml-0 mr-0">
                     <?php 
-                        foreach($informasi as $informasi){
+                        foreach($guru as $guru){
                     ?>
                     <div class="col-sm-6 mt-4 p-sm-3 p-0">
-                        <div class="image-card-berita">
-                            <a href="/Home/viewBerita/<?=$informasi->id?>">
-                            <img src="/assets/images/imageUpload/<?=$informasi->image?>"/>
+                        <div class="image-card-berita" style="background:white;">
+                            <a href="/Home/viewguru/<?=$guru->id?>">
+                            <img src="/assets/images/imageUpload/<?=$guru->poto?>"/>
                             </a>
                         </div>
-                        <div class="description-card-berita">
-                            <h5 class="judul-berita"><?=$informasi->judul?></h5>
-                            <p class="isi-berita"><?=substr($informasi->isi, 0,200)?>...</p>
-                            <span class="info-admin"><i class="fa fa-user mr-2"></i> <?=$informasi->nama_admin?></span>
-                            <span class="info-admin"> Berita</span>
+                        <div class="description-card-guru">
+                            <p class="nama-guru"><?=$guru->nama?></p>
+                            <p class="ket-guru">GUrU <?=$guru->mapel?></p>
                         </div>
                     </div>
                     <?php   } ?>
-                </div>
-
-                <div class="row ml-0 mr-0 pt-4 justify-content-center">
-                    <!-- Pagination -->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <!-- <li class="page-item">
-                            <a class="page-link" href="/Home/berita" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                            </li> -->
-                            <?php for( $page = 1;$page <= $total_berita; $page++){ ?>
-                                <li class="page-item <?php if($this->uri->segment(3) == $page ) echo "active";?>"><a class="page-link" href="/Home/beritapage/<?=$page?>"><?=$page?></a></li>
-                            <?php } ?>
-                            <!-- <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                            </li> -->
-                        </ul>
-                    </nav>
                 </div>
             </div>
             <div class="col-sm-4 cp">
@@ -107,8 +85,8 @@
                 </div>
             </div>
         </div> 
-
     </div>
+
     <div class="row ml-0 mr-0 pt-3 pb-3">
         <div class="container">
         <h3 align="center">GALERI / DOKUMENTASI</h3>

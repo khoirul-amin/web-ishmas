@@ -19,6 +19,11 @@ class Berita_m extends CI_Model{
         $this->db->update('berita',$data);
     }
 
+
+    function get_galeri_limit(){
+        return $this->db->query('SELECT * FROM berita WHERE status="Active" ORDER BY id DESC LIMIT 5');
+    }
+
     function get_galeri(){
         return $this->db->query('SELECT * FROM berita WHERE status="Active" ORDER BY id DESC');
     }
@@ -26,4 +31,10 @@ class Berita_m extends CI_Model{
     function get_data_active(){
         return $this->db->query('SELECT * FROM berita WHERE status="Active" ORDER BY id DESC');
       }
+    function get_count(){
+        return $this->db->query('SELECT COUNT(id) as count_id FROM berita');
+    }
+    function get_page($order,$limit){
+        return $this->db->query("SELECT * FROM berita LIMIT $order,$limit");
+    }
 }

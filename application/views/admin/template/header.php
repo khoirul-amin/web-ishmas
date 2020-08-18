@@ -121,6 +121,18 @@
                   <p>Literasi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/Admin/Galerifoto" class="nav-link">
+                  <i class="fa fa-tag nav-icon"></i>
+                  <p>Galeri Foto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Admin/Galerividio" class="nav-link">
+                  <i class="fa fa-tag nav-icon"></i>
+                  <p>Galeri Vidio</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -142,15 +154,39 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="/Admin/Guru" class="nav-link">
+                  <i class="fa fa-user nav-icon"></i>
+                  <p>Guru</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
                 <a href="/Admin/Tentang" class="nav-link">
                   <i class="fa fa-tags nav-icon"></i>
                   <p>Tentang Sekolah</p>
                 </a>
-              </li>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p> Tentang Sekolah   <i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/Admin/VisiMisi" class="nav-link">
                   <i class="fa fa-tags nav-icon"></i>
                   <p>Visi & Misi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Admin/Kalender" class="nav-link">
+                  <i class="fas fa-info nav-icon"></i>
+                  <p>Kalender Pendidikan</p>
+                </a>
+                <a href="/Admin/Agenda" class="nav-link">
+                  <i class="fas fa-info nav-icon"></i>
+                  <p>Agenda</p>
                 </a>
               </li>
             </ul>

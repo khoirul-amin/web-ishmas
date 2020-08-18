@@ -9,7 +9,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pl-0 bg-secondary rounded-0">
                     <li class="breadcrumb-item text-warning">Home</li>
-                    <li class="breadcrumb-item">Berita</li>
+                    <li class="breadcrumb-item">Pengumuman</li>
                 </ol>
             </nav>
         </div>
@@ -23,15 +23,15 @@
                     ?>
                     <div class="col-sm-6 mt-4 p-sm-3 p-0">
                         <div class="image-card-berita">
-                            <a href="/Home/viewBerita/<?=$informasi->id?>">
-                            <img src="/assets/images/imageUpload/<?=$informasi->image?>"/>
+                            <a href="/Home/viewInformasi/<?=$informasi->id?>">
+                            <img src="/assets/images/imageWeb/info.png"/>
                             </a>
                         </div>
                         <div class="description-card-berita">
                             <h5 class="judul-berita"><?=$informasi->judul?></h5>
                             <p class="isi-berita"><?=substr($informasi->isi, 0,200)?>...</p>
                             <span class="info-admin"><i class="fa fa-user mr-2"></i> <?=$informasi->nama_admin?></span>
-                            <span class="info-admin"> Berita</span>
+                            <span class="info-admin"> Pengumuman</span>
                         </div>
                     </div>
                     <?php   } ?>
@@ -47,7 +47,7 @@
                             </a>
                             </li> -->
                             <?php for( $page = 1;$page <= $total_berita; $page++){ ?>
-                                <li class="page-item <?php if($this->uri->segment(3) == $page ) echo "active";?>"><a class="page-link" href="/Home/beritapage/<?=$page?>"><?=$page?></a></li>
+                                <li class="page-item <?php if($this->uri->segment(3) == $page ) echo "active";?>"><a class="page-link" href="/Home/pengumumanpage/<?=$page?>"><?=$page?></a></li>
                             <?php } ?>
                             <!-- <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
