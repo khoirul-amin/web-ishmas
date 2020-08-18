@@ -18,7 +18,7 @@
             <div class="col-sm-8 pl-0 right-row">
                 <div class="box-right-content pt-4">
                     <div align="center" class="mt-2 mb-2">
-                        <img src="/assets/images/imageWeb/Logo.png" width='250px' />
+                        <img src="/assets/images/imageWeb/info.png" width='250px' />
                     </div>
                     <h3 align="center"><?=$informasi->judul?></h3>
                     <ul class="ul mb-3">

@@ -153,6 +153,12 @@
                   <p>Sambutan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/Admin/Guru" class="nav-link">
+                  <i class="fa fa-user nav-icon"></i>
+                  <p>Guru</p>
+                </a>
+              </li>
               <!-- <li class="nav-item">
                 <a href="/Admin/Tentang" class="nav-link">
                   <i class="fa fa-tags nav-icon"></i>

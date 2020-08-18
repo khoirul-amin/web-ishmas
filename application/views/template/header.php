@@ -92,16 +92,25 @@
                         <a class="<?php if($this->uri->segment(2) == "berita") echo $active; ?>" href="/Home/berita">Berita</a>
                     </li>
                     <li>
+                        <a class="<?php if($this->uri->segment(2) == "literasi") echo $active; ?>" href="/Home/literasi">Literasi</a>
+                    </li>
+                    <li>
+                        <a class="<?php if($this->uri->segment(2) == "galeri") echo $active; ?>" href="/Home/galeri">Galeri</a>
+                    </li>
+                    <li>
+                        <a class="<?php if($this->uri->segment(2) == "pengumuman") echo $active; ?>" href="/Home/pengumuman">Pengumuman</a>
+                    </li>
+                    <li>
                         <a class="<?php if($this->uri->segment(2) == "profil") echo $active; ?>" href="/Home/profil">Tentang Kami</a>
                     </li>
                     <li>
                         <a class="<?php if($this->uri->segment(2) == "sejarah") echo $active; ?>" href="/Home/sejarah">Sejarah Sekolah</a>
                     </li>
                     <li>
-                        <a class="<?php if($this->uri->segment(2) == "literasi") echo $active; ?>" href="/Home/literasi">Literasi</a>
+                        <a class="<?php if($this->uri->segment(2) == "guru") echo $active; ?>" href="/Home/guru">Guru</a>
                     </li>
                     <li>
-                        <a class="<?php if($this->uri->segment(2) == "galeri") echo $active; ?>" href="/Home/galeri">Galeri</a>
+                        <!-- <a class="<?php if($this->uri->segment(2) == "alumni") echo $active; ?>" href="/Home/alumni">Alumni</a> -->
                     </li>
                 </ul>
             </div>

@@ -16,7 +16,7 @@
     </div>
     <div class="container">
         <div class="row ml-0 mr-0 pt-3">
-            <div class="col-sm-8 p-0">
+            <div class="col-sm-8 p-0 right-row">
                 <!-- <div class="header-box">Kegiatan Literasi Siswa/Siswi MTs Ishlahul Masalik</div> -->
                 <div class="row ml-0 mr-0">
                     <?php 
@@ -37,23 +37,23 @@
                     </div>
                     <?php   } ?>
                 </div>
-                <!-- Pagination -->
                 <div class="row ml-0 mr-0 pt-4 justify-content-center">
+                    <!-- Pagination -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <!-- <li class="page-item">
+                            <a class="page-link" href="/Home/berita" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="literasi/1">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
+                            </li> -->
+                            <?php for( $page = 1;$page <= $total_berita; $page++){ ?>
+                                <li class="page-item <?php if($this->uri->segment(3) == $page ) echo "active";?>"><a class="page-link" href="/Home/literasipage/<?=$page?>"><?=$page?></a></li>
+                            <?php } ?>
+                            <!-- <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </nav>
                 </div>

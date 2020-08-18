@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row ml-0 pt-2 mr-0">
+        <div class="row ml-0 pb-2 pt-2 mr-0">
             <div class="col-sm-8 pl-0 right-row">
                 <div class="box-right-content pt-4">
                     <div class="judul-agenda mb-3">

@@ -109,73 +109,42 @@
             </div>
             <?php   } ?>
             <div align="center" class="mt-4 mb-4">
-                <a class="button-more" href="#" >LIHAT SEMUA INFORMASI</a>
+                <a class="button-more" href="/Home/pengumuman" >LIHAT SEMUA INFORMASI</a>
             </div>
         </div>
     </div>
 
     <!-- Guru -->
-    <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">
+    <div class="col-sm-12 pb-1 pl-0 pt-3 pr-0 mb-2 mt-5" style="background:#ffc107!important;">
         <h3 align="center">TENAGA PENDIDIK</h3>
         <div class="container">
             <div class="section-body">
                 <div id="slider-tools-1"></div>
                 <div class="owl-carousel" id="tenaga-pendidik-slider">
+                    <?php foreach($guru as $guru){?>
                     <div class="custom-section-item">
                         <div class="custom-section-tendik">
                             <div class="image-card-guru">
-                                <img src="https://drive.google.com/uc?id=1o-QsWAeIjFqtd9_b9NnpdUrVbnwEpTRA"/>
+                                <img src="/assets/images/imageUpload/<?=$guru->poto?>"/>
                             </div>
                             <div class="description-card-guru">
-                                <p class="nama-guru">GURU 1, S.Pd.I</p>
-                                <p class="ket-guru">GUrU BAHASA INGGRIS</p>
+                                <p class="nama-guru"><?=$guru->nama?></p>
+                                <p class="ket-guru">GUrU <?=$guru->mapel?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="custom-section-item">
-                        <div class="custom-section-tendik">
-                            <div class="image-card-guru">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSbaNyFxt-kaa4jAmqM7BTkjVirln5Djr_CTg&usqp=CAU"/>
-                            </div>
-                            <div class="description-card-guru">
-                                <p class="nama-guru">GURU 1, S.Pd.I</p>
-                                <p class="ket-guru">GURU BAHASA INDONESIA</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-section-item">
-                        <div class="custom-section-tendik">
-                            <div class="image-card-guru">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSbaNyFxt-kaa4jAmqM7BTkjVirln5Djr_CTg&usqp=CAU"/>
-                            </div>
-                            <div class="description-card-guru">
-                                <p class="nama-guru">GURU 1, S.Pd.I</p>
-                                <p class="ket-guru">GURU MATEMATIKA</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-section-item">
-                        <div class="custom-section-tendik">
-                            <div class="image-card-guru">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSbaNyFxt-kaa4jAmqM7BTkjVirln5Djr_CTg&usqp=CAU"/>
-                            </div>
-                            <div class="description-card-guru">
-                                <p class="nama-guru">GURU 1, S.Pd.I</p>
-                                <p class="ket-guru">GURU BIMBINGAN KONSELING</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }?>
                 </div>
             </div>
 
             <div align="center" class="mt-4 mb-4">
-                <a class="button-more" href="#" >LIHAT SEMUA GURU</a>
+                <a class="button-more" href="/Home/guru" >LIHAT SEMUA GURU</a>
             </div>
         </div>
     </div>
 
     <!-- Alumni -->
-    <div class="col-sm-12 pb-4" style="background:#009688;">
+    <!-- <div class="col-sm-12 pb-4" style="background:#009688;">
         <div class="container">
             <h4 align="center" class="pt-5 pb-5">PROFIL ALUMNI</h4>
             <div class="section-body">
@@ -212,7 +181,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Galeri Kegiatan -->
     <div class="col-sm-12 pb-1 pl-0 pt-0 pr-0 mb-2 mt-5">

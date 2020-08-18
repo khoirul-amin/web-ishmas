@@ -408,6 +408,7 @@ body{
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  background: #eff3f2;
 }
 .nama-guru{
   margin-bottom: 0px;
@@ -417,7 +418,7 @@ body{
   text-transform: uppercase;
 }
 .ket-guru{
-  color: rgb(196, 196, 6);
+  color: #017a6e;
   text-transform: uppercase;
 }
 
